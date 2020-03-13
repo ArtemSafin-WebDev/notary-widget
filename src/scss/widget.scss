@@ -182,6 +182,11 @@ $heading-color: #445366;
         }
     }
 
+    .application-widget__stations {
+        display: flex;
+        flex-direction: column;
+    }
+
     .application-widget__stations-group {
         margin-bottom: 10px;
         &:first-child {

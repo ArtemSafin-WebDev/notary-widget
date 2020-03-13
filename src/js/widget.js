@@ -1,6 +1,4 @@
 document.addEventListener("DOMContentLoaded", function() {
-    
-
     function widgetController(element) {
         var currentStep = 0;
         var steps = Array.prototype.slice.call(
@@ -23,6 +21,9 @@ document.addEventListener("DOMContentLoaded", function() {
         ];
         var closeBtn = element.querySelector(".application-widget__close");
         var mainBtn = element.querySelector(".application-widget__main-btn");
+        var mainBtnText = element.querySelector(
+            ".application-widget__main-btn-text"
+        );
         var navAction = element.querySelector(
             ".application-widget__nav-action"
         );
@@ -38,14 +39,13 @@ document.addEventListener("DOMContentLoaded", function() {
             element.querySelectorAll('input[type="tel"]')
         );
         var locale = "ru";
-        var form = element.querySelector('form');
+        var form = element.querySelector("form");
 
         var submitCallback = null;
 
         function onSubmit(callback) {
             submitCallback = callback;
         }
-        
 
         function initialize() {
             closeBtn.addEventListener("click", appWidget.close);
@@ -81,7 +81,6 @@ document.addEventListener("DOMContentLoaded", function() {
                 Inputmask({ mask: "+7 (999) 999-99-99" }).mask(input);
             });
         }
-
 
         function _addValidators() {
             window.Parsley.addValidator("phone", {
@@ -128,11 +127,13 @@ document.addEventListener("DOMContentLoaded", function() {
 
             var parsleyConfig = {
                 errorsContainer: function(pEle) {
-                    var $err = pEle.$element.closest('.application-widget__contacts-row');
+                    var $err = pEle.$element.closest(
+                        ".application-widget__contacts-row"
+                    );
                     return $err;
                 }
-            }
-            
+            };
+
             $(form).parsley(parsleyConfig);
         }
 
@@ -168,33 +169,47 @@ document.addEventListener("DOMContentLoaded", function() {
             if (currentStep < stepsCount - 1) {
                 event.preventDefault();
                 goForward();
-              
             } else {
                 if (submitCallback) {
                     event.preventDefault();
-                    if ($(form).parsley().isValid()) {
+                    if (
+                        $(form)
+                            .parsley()
+                            .isValid()
+                    ) {
                         submitCallback(new FormData(form));
                     }
                 }
             }
+
+            
+        }
+
+        function _handleMainButtonText() {
+            if (currentStep === stepsCount - 1) {
+                mainBtnText.textContent = "Записаться";
+            } else {
+                mainBtnText.textContent = "Следующий шаг";
+            }
         }
 
         function goBackward(event) {
-            if (typeof event !== 'undefined') {
+            if (typeof event !== "undefined") {
                 event.preventDefault();
             }
             if (currentStep >= 1) {
                 _setActiveStep(currentStep - 1);
-               
-            } else {
-                
-            }
+            } 
+
+            _handleMainButtonText();
         }
 
         function goForward() {
             if (currentStep < stepsCount - 1) {
                 _setActiveStep(currentStep + 1);
             }
+
+            _handleMainButtonText();
         }
 
         function openWidget() {

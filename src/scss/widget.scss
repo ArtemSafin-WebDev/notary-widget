@@ -366,6 +366,9 @@ $heading-color: #445366;
         @media screen and (max-width: 568px) {
             width: 25%;
         }
+        @media screen and (max-width: 360px) {
+            width: 33.33%;
+        }
     }
 
     .application-widget__schedule-group-time-checkbox {

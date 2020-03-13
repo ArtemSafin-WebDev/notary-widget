@@ -22,10 +22,17 @@
             .wrapper {
                 background-color: #f2f2f2;
                 min-height: 100vh;
+                padding: 15px;
                 display: flex;
                 flex-direction: column;
                 align-items: center;
                 justify-content: center;
+            }
+
+            @media screen and (max-width: 568px) {
+                .wrapper {
+                    min-height: auto;
+                }
             }
         </style>
         <div class="wrapper">

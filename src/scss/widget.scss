@@ -391,11 +391,12 @@ $heading-color: #445366;
         border: 1px solid #e6e7e9;
         border-radius: 8px;
         font-size: 16px;
-        padding: 8px 12px;
+        padding: 8px 8px;
         transition: all 0.2s;
         cursor: pointer;
         display: block;
         user-select: none;
+        text-align: center;
     }
 
     .application-widget__schedule-group-time-checkbox:hover

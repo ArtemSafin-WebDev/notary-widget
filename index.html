@@ -8,8 +8,8 @@
             href="https://fonts.googleapis.com/css?family=Roboto:400,500&display=swap&subset=cyrillic"
             rel="stylesheet"
         />
-        
-        <link rel="stylesheet" href="dist/css/vendor.css">
+
+        <link rel="stylesheet" href="dist/css/vendor.css" />
         <link rel="stylesheet" href="dist/css/widget.css" />
     </head>
     <body>
@@ -37,7 +37,11 @@
         </style>
         <div class="wrapper">
             <div class="application-widget js-application-widget">
-                <form class="application-widget__inner" action="/" method="POST">
+                <form
+                    class="application-widget__inner"
+                    action="/"
+                    method="POST"
+                >
                     <button class="application-widget__close">
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
@@ -1344,7 +1348,9 @@
                         <div class="application-widget__content-block">
                             <div class="application-widget__contacts">
                                 <div class="application-widget__contacts-row">
-                                    <label class="application-widget__contacts-group">
+                                    <label
+                                        class="application-widget__contacts-group"
+                                    >
                                         <svg
                                             xmlns="http://www.w3.org/2000/svg"
                                             viewBox="0 0 15 20"
@@ -1363,7 +1369,7 @@
                                             placeholder="Имя"
                                             required
                                         />
-    
+
                                         <svg
                                             xmlns="http://www.w3.org/2000/svg"
                                             viewBox="0 0 8 8"
@@ -1379,7 +1385,9 @@
                                     </label>
                                 </div>
                                 <div class="application-widget__contacts-row">
-                                    <label class="application-widget__contacts-group">
+                                    <label
+                                        class="application-widget__contacts-group"
+                                    >
                                         <svg
                                             xmlns="http://www.w3.org/2000/svg"
                                             viewBox="0 0 18 18"
@@ -1414,7 +1422,9 @@
                                     </label>
                                 </div>
                                 <div class="application-widget__contacts-row">
-                                    <label class="application-widget__contacts-group">
+                                    <label
+                                        class="application-widget__contacts-group"
+                                    >
                                         <svg
                                             xmlns="http://www.w3.org/2000/svg"
                                             viewBox="0 0 18 14.14"
@@ -1449,7 +1459,9 @@
                                     </label>
                                 </div>
                                 <div class="application-widget__contacts-row">
-                                    <label class="application-widget__contacts-group">
+                                    <label
+                                        class="application-widget__contacts-group"
+                                    >
                                         <textarea
                                             name="message"
                                             class="application-widget__contacts-textarea"
@@ -1457,9 +1469,16 @@
                                         ></textarea>
                                     </label>
                                 </div>
-                                <div class="application-widget__contacts-privacy-policy">
+                                <div
+                                    class="application-widget__contacts-privacy-policy"
+                                >
                                     <p>
-                                        Нажимая кнопку «Записаться», вы даете согласие на обработку своих персональных данных и соглашаетесь с <a href="#">Политикой конфиденциальности</a>
+                                        Нажимая кнопку «Записаться», вы даете
+                                        согласие на обработку своих персональных
+                                        данных и соглашаетесь с
+                                        <a href="#"
+                                            >Политикой конфиденциальности</a
+                                        >
                                     </p>
                                 </div>
                             </div>
@@ -1475,7 +1494,17 @@
             </div>
         </div>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-        <script src="dist/js/vendor.js" defer></script>
-        <script src="dist/js/widget-min.js" defer></script>
+        <script src="dist/js/vendor.js"></script>
+        <script src="dist/js/widget-min.js"></script>
+        <script>
+            var widgetElement = document.querySelector(
+                ".js-application-widget"
+            );
+            if (widgetElement) {
+                var appWidget = widgetController(widgetElement);
+                appWidget.init();
+                appWidget.open();
+            }
+        </script>
     </body>
 </html>

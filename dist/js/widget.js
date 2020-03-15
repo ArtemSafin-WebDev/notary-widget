@@ -45,9 +45,9 @@ window.widgetController = function(element) {
     }
 
     function initialize() {
-        closeBtn.addEventListener("click", appWidget.close);
-        mainBtn.addEventListener("click", appWidget.clickCentralButton);
-        backBtn.addEventListener("click", appWidget.goBackward);
+        closeBtn.addEventListener("click", closeWidget);
+        mainBtn.addEventListener("click", pressMainButton);
+        backBtn.addEventListener("click", goBackward);
         _setActiveStep(currentStep);
         _setScrollbars();
         _setPhoneMasks();
@@ -55,8 +55,8 @@ window.widgetController = function(element) {
     }
 
     function destroy() {
-        closeBtn.removeEventListener("click", appWidget.close);
-        mainBtn.removeEventListener("click", appWidget.clickCentralButton);
+        closeBtn.removeEventListener("click", closeWidget);
+        mainBtn.removeEventListener("click", pressMainButton);
         currentStep = 0;
         closeWidget();
     }
